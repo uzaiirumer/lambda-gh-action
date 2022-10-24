@@ -1,8 +1,8 @@
 
 {
 "compilerOptions":{
-"target": "es2015",
-"moduleResolustion": "node"
+"target": "es2017",
+"moduleResolution": "node16"
 }
 }
 
