@@ -1,10 +1,8 @@
 name: Deploy
-
 on:
   push:
     branches:
       - master
-
 jobs:
   deploy_lambda:
     runs-on: ubuntu-latest
@@ -13,7 +11,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '16'
-<<<<<<< HEAD
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -21,24 +18,15 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-2
 
-=======
->>>>>>> parent of d3a1531... Update main.yml
       - name: npm install
         env:
           CI: true
         run: npm ci
       - name: deploy
-<<<<<<< HEAD
         run: |
-         npx ncc build index.ts
-         zip -j deploy.zip ./dist/*
-         aws lambda update-function-code --function-name=lambda-gh-action --zip-file=fileb://deploy.zip
+          npx ncc build index.ts
+          zip -j deploy.zip ./dist/*
+          aws lambda update-function-code --function-name=lambda-gh-action --zip-file=fileb://deploy.zip
 
-    
-=======
-      run: npx ncc build index.ts
-  
-      # zip
->>>>>>> parent of d3a1531... Update main.yml
+
       # aws cli -deploy code
-        
